@@ -33,7 +33,7 @@ class UpdateNBPRatesCommand extends Command
             ->setHelp('Update NBP Currency rates');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
         $store = new FlockStore();
@@ -53,7 +53,6 @@ class UpdateNBPRatesCommand extends Command
             " > Started processing NBP Currency rates " . $startTime->format("Y-m-d H:i:s")
         ]);
 
-        #refresh all expired allegro account tokens
         $io->write($this->NBPService->updateCurrencyRates() . PHP_EOL);
 
         $endTime = new DateTime('now');
