@@ -54,11 +54,11 @@ class NBPService
 
         $currencyMultiplied = false;
 
-        if (number_format($currencyRate['mid'], 2, '.', '') == "0.00") {
+        if ($currencyRate['mid'] >= 0.01) {
+            $currencyRateValue = $currencyRate['mid'];
+        } else {
             $currencyRateValue = $currencyRate['mid'] * 100;
             $currencyMultiplied = true;
-        } else {
-            $currencyRateValue = $currencyRate['mid'];
         }
 
         if (!$currentCurrencyRate) {
