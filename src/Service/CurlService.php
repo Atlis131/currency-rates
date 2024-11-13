@@ -5,7 +5,7 @@ namespace App\Service;
 class CurlService
 {
 
-    public function performRequest($url)
+    public function performRequest($url): bool|string
     {
         $ch = curl_init();
 

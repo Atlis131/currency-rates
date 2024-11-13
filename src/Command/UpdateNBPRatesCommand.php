@@ -25,7 +25,7 @@ class UpdateNBPRatesCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('nbp:rates:update')
@@ -63,7 +63,6 @@ class UpdateNBPRatesCommand extends Command
         $lock->release();
 
         return Command::SUCCESS;
-
     }
 
 }
